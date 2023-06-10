@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .temperature {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .details p {
+    margin: 0 10px;
+  }
+  
+  .hourly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
