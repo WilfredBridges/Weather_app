@@ -60,6 +60,15 @@ function App() {
           <p>Min: {weatherData.daily.temperature_2m_min[0]}°C</p>
 
           {/* Display other weather data properties as needed */}
+
+          <h3>Next 5 Days</h3>
+          <ul>
+            {weatherData.daily.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
+              <li key={index}>
+                Day {index + 1}: Max Temp: {maxTemp}°C, Min Temp: {weatherData.daily.temperature_2m_min[index + 1]}°C, Precipitation: {weatherData.daily.precipitation_sum[index + 1]} mm
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>
@@ -67,6 +76,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
