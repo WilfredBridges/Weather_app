@@ -55,11 +55,9 @@ function App() {
       {weatherData && (
         <div className="weather-container">
           <h2>{firstName}</h2>
-          <p className="current-temperature">Temperature: {weatherData.current_weather.temperature}°C</p>
-          <p>Max: {weatherData.daily.temperature_2m_max[0]}°C</p>
-          <p>Min: {weatherData.daily.temperature_2m_min[0]}°C</p>
-
-          {/* Display other weather data properties as needed */}
+          <p className="current-temperature">Temperature: {Math.round(weatherData.current_weather.temperature)}°C</p>
+          <p>Max: {Math.round(weatherData.daily.temperature_2m_max[0])}°C</p>
+          <p>Min: {Math.round(weatherData.daily.temperature_2m_min[0])}°C</p>
 
           <h3>Next 5 Days</h3>
           <ul className="forecast-list">
@@ -68,7 +66,7 @@ function App() {
                 <span className="day">Day {index + 1}:</span>
                 <span className="temperature">Max Temp: {maxTemp}°C</span>
                 <span className="temperature">Min Temp: {weatherData.daily.temperature_2m_min[index + 1]}°C</span>
-                <span className="precipitation">Precipitation: {weatherData.daily.precipitation_sum[index + 1]} mm</span>
+                <span className="precipitation">Rainfall: {weatherData.daily.precipitation_sum[index + 1]} mm</span>
               </li>
             ))}
           </ul>
