@@ -2,92 +2,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f0f0f0;
+  padding: 20px;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.search-container input {
+input[type="text"] {
   padding: 10px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
   margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.search-container button {
-  padding: 10px;
-  font-size: 16px;
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.error {
-  color: red;
-  margin-bottom: 20px;
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
 .location {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.weather-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.current-temperature {
   font-size: 24px;
   font-weight: bold;
 }
 
-.temperature {
-  font-size: 48px;
+.forecast-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.forecast-item {
+  margin-bottom: 10px;
+}
+
+.day {
   font-weight: bold;
-  margin-left: 10px;
 }
 
-.details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 20px;
+.temperature {
+  margin-right: 10px;
 }
 
-.details p {
-  margin: 0 10px;
+.precipitation {
+  color: #888;
 }
 
-.daily {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 
-.daily h2 {
-  margin: 0;
-}
-
-.daily p {
-  margin: 0;
-}
-
-.daily:first-child {
-  margin-left: 20px;
-}
-
-.daily:last-child {
-  margin-right: 20px;
+  button {
+    width: 100%;
+  }
 }

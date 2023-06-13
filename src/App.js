@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import './Header.css';
+//import './Header.css';
 
 function App() {
   const [city, setCity] = useState('');
@@ -47,25 +47,28 @@ function App() {
       <button onClick={handleSearch}>Search</button>
 
       {latitude && longitude && (
-        <div>
+        <div className="location">
           Latitude: {latitude}, Longitude: {longitude}
         </div>
       )}
 
       {weatherData && (
-        <div>
+        <div className="weather-container">
           <h2>{firstName}</h2>
-          <p>Temperature: {weatherData.current_weather.temperature}°C</p>
+          <p className="current-temperature">Temperature: {weatherData.current_weather.temperature}°C</p>
           <p>Max: {weatherData.daily.temperature_2m_max[0]}°C</p>
           <p>Min: {weatherData.daily.temperature_2m_min[0]}°C</p>
 
           {/* Display other weather data properties as needed */}
 
           <h3>Next 5 Days</h3>
-          <ul>
+          <ul className="forecast-list">
             {weatherData.daily.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
-              <li key={index}>
-                Day {index + 1}: Max Temp: {maxTemp}°C, Min Temp: {weatherData.daily.temperature_2m_min[index + 1]}°C, Precipitation: {weatherData.daily.precipitation_sum[index + 1]} mm
+              <li key={index} className="forecast-item">
+                <span className="day">Day {index + 1}:</span>
+                <span className="temperature">Max Temp: {maxTemp}°C</span>
+                <span className="temperature">Min Temp: {weatherData.daily.temperature_2m_min[index + 1]}°C</span>
+                <span className="precipitation">Precipitation: {weatherData.daily.precipitation_sum[index + 1]} mm</span>
               </li>
             ))}
           </ul>
@@ -76,6 +79,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
