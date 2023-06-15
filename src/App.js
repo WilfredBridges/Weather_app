@@ -64,8 +64,8 @@ function App() {
             {weatherData.daily.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
               <li key={index} className="forecast-item">
                 <span className="day">Day {index + 1}:</span>
-                <span className="temperature">Max Temp: {maxTemp}°C</span>
-                <span className="temperature">Min Temp: {weatherData.daily.temperature_2m_min[index + 1]}°C</span>
+                <span className="temperature">Max: {maxTemp}°C</span>
+                <span className="temperature">Min: {weatherData.daily.temperature_2m_min[index + 1]}°C</span>
                 <span className="precipitation">Rainfall: {weatherData.daily.precipitation_sum[index + 1]} mm</span>
               </li>
             ))}
