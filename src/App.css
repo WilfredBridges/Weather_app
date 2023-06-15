@@ -55,6 +55,7 @@ button {
 
 .day {
   font-weight: bold;
+  margin-right: 4px;
 }
 
 .temperature {

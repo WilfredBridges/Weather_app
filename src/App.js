@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-//import './Header.css';
 
 function App() {
   const [city, setCity] = useState('');
@@ -36,6 +35,26 @@ function App() {
     }
   };
 
+  const formatForecastDate = (index) => {
+    const today = new Date();
+    today.setDate(today.getDate() + index + 1);
+    
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[today.getDay()];
+    
+    const dayOfMonth = today.getDate();
+    let suffix = 'th';
+    if (dayOfMonth === 1 || dayOfMonth === 21 || dayOfMonth === 31) {
+      suffix = 'st';
+    } else if (dayOfMonth === 2 || dayOfMonth === 22) {
+      suffix = 'nd';
+    } else if (dayOfMonth === 3 || dayOfMonth === 23) {
+      suffix = 'rd';
+    }
+    
+    return `${dayOfWeek} ${dayOfMonth}${suffix}`;
+  };
+  
   return (
     <div className="container">
       <input
@@ -63,7 +82,7 @@ function App() {
           <ul className="forecast-list">
             {weatherData.daily.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
               <li key={index} className="forecast-item">
-                <span className="day">Day {index + 1}:</span>
+                <span className="day">{formatForecastDate(index)}:</span>
                 <span className="temperature">Max: {maxTemp}°C</span>
                 <span className="temperature">Min: {weatherData.daily.temperature_2m_min[index + 1]}°C</span>
                 <span className="precipitation">Rainfall: {weatherData.daily.precipitation_sum[index + 1]} mm</span>
@@ -77,6 +96,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
