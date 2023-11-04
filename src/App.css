@@ -3,7 +3,14 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
+
+.search-bar {
+  display: flex;
+}
+
+
 
 .container {
   display: flex;
@@ -17,6 +24,7 @@ input[type="text"] {
   margin-right: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 200px;
 }
 
 button {
@@ -41,20 +49,28 @@ button {
 .current-temperature {
   font-size: 24px;
   font-weight: bold;
+  color: rgb(0, 0, 0);
 }
 
-.forecast-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-}
 
-.forecast-item {
-  margin-bottom: 10px;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
+  .forecast-list {
+    display: flex;
+    align-items: center; /* Center items vertically on small screens */
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .forecast-item {
+    display: flex;
+    flex-direction: column; /* Change to column to stack details */
+    align-items: center; /* Center details horizontally */
+    margin-right: 20px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px; /* Add padding for space between items */
+  }
 
 .day {
   font-weight: bold;
@@ -78,5 +94,15 @@ button {
 
   button {
     width: 100%;
+  }
+
+  .forecast-item {
+    margin-right: 0; /* Remove margin for small screens */
+    margin-top: 10px;
+  }
+
+  .forecast-list {
+    flex-direction: column; /* Change to column layout on small screens */
+    align-items: center; /* Center items vertically on small screens */
   }
 }

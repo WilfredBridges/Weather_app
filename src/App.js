@@ -57,6 +57,7 @@ function App() {
   
   return (
     <div className="container">
+      <div className='search-bar'>
       <input
         type="text"
         placeholder="Enter a city name"
@@ -64,7 +65,7 @@ function App() {
         onChange={(e) => setCity(e.target.value)}
       />
       <button onClick={handleSearch}>Search</button>
-
+      </div>
       {latitude && longitude && (
         <div className="location">
           Latitude: {latitude}, Longitude: {longitude}
@@ -78,7 +79,7 @@ function App() {
           <p>Max: {Math.round(weatherData.daily.temperature_2m_max[0])}°C</p>
           <p>Min: {Math.round(weatherData.daily.temperature_2m_min[0])}°C</p>
 
-          <h3>Next 5 Days</h3>
+          <h3>Forecast:</h3>
           <ul className="forecast-list">
             {weatherData.daily.temperature_2m_max.slice(1, 6).map((maxTemp, index) => (
               <li key={index} className="forecast-item">
